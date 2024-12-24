@@ -5,6 +5,39 @@ import 'package:pass_mgr/utils/constans.dart';
 
 import '../models/item.dart';
 
+// we use this data for generate password and
+// check password strength functions
+String lower = 'abcdefghijklmnopqrstuvwxyz';
+String numbers = '1234567890';
+String upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+String checkPasswordStrength(String password) {
+  int length = password.length;
+  bool hasLower = false;
+  bool hasUpper = false;
+  bool hasNumber = false;
+
+  for (int i = 0; i < password.length; i++) {
+    if (lower.contains(password[i])) {
+      hasLower = true;
+    } else if (upper.contains(password[i])) {
+      hasUpper = true;
+    } else if (numbers.contains(password[i])) {
+      hasNumber = true;
+    }
+  }
+
+  if (length < 8 || !hasLower || !hasUpper || !hasNumber) {
+    return "weak";
+  } else if (length >= 8 && (hasLower && hasUpper) ||
+      (hasLower && hasNumber) ||
+      (hasUpper && hasNumber)) {
+    return "medium";
+  } else {
+    return "strong";
+  }
+}
+
 ElevatedButton commonButton({
   required void Function() onPress,
   required String label,
@@ -47,7 +80,6 @@ bool displayRemoveSnackbar(
                 callBack();
 
                 ScaffoldMessenger.of(context).removeCurrentSnackBar();
-
               },
               child: const Text(
                 "Undo",
@@ -77,9 +109,6 @@ void displaySnackbar(
 }
 
 String generatePassword() {
-  String upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  String lower = 'abcdefghijklmnopqrstuvwxyz';
-  String numbers = '1234567890';
   String symbols = '!@#\$%^&*()<>,./';
   int passLength = 8;
   String seed = upper + lower + numbers + symbols;

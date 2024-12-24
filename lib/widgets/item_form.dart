@@ -25,6 +25,7 @@ class ItemForm extends StatefulWidget {
 class _ItemFormState extends State<ItemForm> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _titleController = TextEditingController();
+  String passwordStrength = "weak";
 
   bool _generateActivated = false;
 
@@ -73,6 +74,10 @@ class _ItemFormState extends State<ItemForm> {
                     onChanged: (value) {
                       password = value;
                     },
+                  ),
+                  const Align(
+                    alignment: Alignment.centerRight,
+                    child: Text("weak"),
                   ),
                   //const Spacer(),
                   const SizedBox(height: 15),

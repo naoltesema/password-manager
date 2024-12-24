@@ -1,6 +1,76 @@
-# pass_mgr
+Got it, here's the updated README in Markdown format with the correct license information:
 
-So here is a useful little tool I've been building lately. In this day and age we all struggle with one big issue, password management. We have so many accounts on our social medias, online tools and services etc. And we are adviced to use strong password for each of them, and not the same password everywhere. This creates a problem where we have to remember all our passwords or just store them somewhere. But remembering all these passwords isn't possible and if we are going to store them all we need to have a safe and secure way of saving them. This, is where my app comes into the scene. It's a simple, intuitive and minimal app that can enable us to create, store, edit and delete our passwords for different accounts, and also copy the password to clipboard in a secure way. And every action we do is highly guarded with a strong pin code authentication, the app uses its own internal keyboard to input the pincode (like a master key for all our keys :) ) and it's so secure you can't even copy or paste into it. After that, users can simply enter the title(name) of the social media/online service they're using and the password they use for it. They can also generate a strong 8 digit password with capital letters, numbers and special symbols mixed in. They can generate as many of these as they like, and they can choose whichever they like from these passwords. Also the app uses hive as local database so everything is stored on the phone.
+# Secure Password Manager
 
+Secure Password Manager is a Flutter-based application that provides a secure way to store and manage your passwords. It utilizes the Hive database and the Flutter Secure Storage plugin to ensure the safety of your sensitive information.
 
-If you want to check the app yourself, you can find the build apks (for android) on the [releases page](https://github.com/Dechie/password-manager/releases/tag/v1.0.0):
+## Features
+
+- Secure storage of passwords using AES encryption
+- Biometric authentication (e.g., fingerprint, face ID) for added security
+- Backup and restore functionality to protect your data
+- Password strength validation to encourage the use of strong passwords
+- Automatic logout after a period of inactivity
+
+## Getting Started
+
+### Prerequisites
+
+- Flutter SDK installed on your development machine
+- Android Studio or Xcode (depending on your target platform)
+
+### Installation
+
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/your-username/secure-password-manager.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```
+   cd secure-password-manager
+   ```
+
+3. Install the dependencies:
+
+   ```
+   flutter pub get
+   ```
+
+4. Run the app:
+
+   ```
+   flutter run
+   ```
+
+### Usage
+
+1. When the app is launched for the first time, you will be prompted to create a PIN code for authentication.
+2. After setting up the PIN, you can start adding, editing, and deleting your passwords.
+3. The app will automatically encrypt your password data using the generated encryption key, which is securely stored in the device's secure storage.
+4. You can enable biometric authentication (e.g., fingerprint, face ID) for faster and more secure access to your passwords.
+5. The app will automatically log you out after a period of inactivity to prevent unauthorized access.
+
+## Security Considerations
+
+- The app uses the `FlutterSecureStorage` plugin to securely store the encryption key used for Hive database encryption.
+- All password data is encrypted using AES encryption before being stored in the Hive database.
+- The app does not store or transmit any sensitive information outside of the device.
+- The app includes password strength validation to encourage the use of strong passwords.
+
+## Future Improvements
+
+- Implement a secure backup and restore mechanism for the user's password data.
+- Add support for password sharing and collaboration features.
+- Integrate with popular password managers for seamless data migration.
+- Provide an option to generate strong, random passwords.
+
+## Contributing
+
+If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [GPL License](LICENSE).

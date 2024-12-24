@@ -65,6 +65,10 @@ class _EditFormState extends State<EditForm> {
                   password = value;
                 },
               ),
+              const Align(
+                alignment: Alignment.centerRight,
+                child: Text("weak"),
+              ),
               //const Spacer(),
               const SizedBox(height: 15),
               Row(
@@ -149,6 +153,8 @@ class _EditFormState extends State<EditForm> {
       ),
     );
   }
+
+  
 
   @override
   void initState() {
