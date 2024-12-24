@@ -1,5 +1,3 @@
-Got it, here's the updated README in Markdown format with the correct license information:
-
 # Secure Password Manager
 
 Secure Password Manager is a Flutter-based application that provides a secure way to store and manage your passwords. It utilizes the Hive database and the Flutter Secure Storage plugin to ensure the safety of your sensitive information.
