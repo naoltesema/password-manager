@@ -66,4 +66,17 @@ class HiveServices {
     await box.put(item.key, item.toJson());
     print(box.values);
   }
+
+  // hive data backup
+  Future<void> backupHiveData() async {
+    var box = await _box;
+    var data = box.toMap();
+
+    Directory appDocDir = await getApplicationDocumentsDirectory();
+    String backupFilePath = '${appDocDir.path}/hive_backup.json';
+    File backupFile = File(backupFilePath);
+
+    await backupFile.writeAsString(jsonEncode(data));
+    print('Backup saved to $backupFilePath');
+  } 
 }

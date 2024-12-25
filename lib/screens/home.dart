@@ -47,16 +47,19 @@ class _HomePageState extends State<HomePage> {
           'Password Manager',
           style: titleStyle2,
         ),
-        // actions: [
-        //   IconButton(
-        //     tooltip: "Sync Data With Devices.",
-        //     onPressed: () {},
-        //     color: Colors.white,
-        //     icon: const Icon(
-        //       FontAwesomeIcons.arrowsRotate,
-        //     ),
-        //   )
-        // ],
+        actions: [
+          IconButton(
+            tooltip: "Backup Data",
+            onPressed: () async {
+              await _hiveServices.backupHiveData();
+              displaySnackbar(context, "Backup completed.");
+            },
+            color: Colors.white,
+            icon: const Icon(
+              FontAwesomeIcons.fileExport,
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
